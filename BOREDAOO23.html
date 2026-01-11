@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Game Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #1a1a1a; color: white; }
+        .card { background: #2a2a2a; padding: 20px; border-radius: 15px; display: inline-block; }
+        button { background: #007AFF; color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 18px; cursor: pointer; margin-top: 20px; }
+        select { padding: 10px; font-size: 16px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Game Editor</h1>
+    <div class="card">
+        <p>Pick Character Color:</p>
+        <select id="color">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        
+        <p>Game Speed:</p>
+        <input type="range" id="speed" min="1" max="10" value="5">
+        
+        <br>
+        <button onclick="sendToApp()">🚀 Send to My App</button>
+    </div>
+
+    <script>
+        function sendToApp() {
+            const color = document.getElementById('color').value;
+            const speed = document.getElementById('speed').value;
+            
+            // This is the Magic Link that opens your app
+            // Format: https://yourdomain.com/share?data=COLOR_SPEED
+            const appUrl = "https://yourusername.github.io/share?data=" + color + "_" + speed;
+            
+            window.location.href = appUrl;
+        }
+    </script>
+</body>
+</html>
